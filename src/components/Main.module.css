@@ -1,0 +1,31 @@
+.main {
+   margin: auto;
+   text-align: center;
+}
+
+.task-list {
+   padding: 0;
+   margin: 0;
+   list-style-type: none;
+}
+
+.task-list-task {
+   border-radius: 0.5rem;
+   margin: 0;
+   background-color: #4a4c5c;
+   margin: 1rem 0;
+   text-decoration: none;
+   transition: 0.3s all ease-in;
+   cursor: pointer;
+}
+
+.task-list-task a {
+   display: block;
+   padding: 1.5rem;
+   color: white;
+}
+
+.task-list-task:hover {
+   transform: scaleY(1.1);
+   background-color: #d4a056;
+}
