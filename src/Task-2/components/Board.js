@@ -7,29 +7,36 @@ class Board extends Component {
       cards: [],
       firstCard: null,
       secondCard: null,
-      matched: 0,
+      isSelected: false,
    }
 
-   shuffleCards = () => {
-      const suffledCards = [...this.props.images, ...this.props.images]
-         .sort(() => Math.random() - 0.5)
-         .map((card, index) => ({ ...card, id: ++index }))
-      this.setState({ cards: suffledCards, firstCard: null, secondCard: null })
+   shuffle = () => {
       this.props.reset()
+      setTimeout(() => {
+         const suffledCards = [...this.props.images, ...this.props.images]
+            .sort(() => Math.random() - 0.5)
+            .map((card, index) => ({ ...card, id: ++index }))
+         this.setState({ cards: suffledCards })
+         this.resetTurn()
+      }, 100)
    }
 
    componentDidMount() {
-      this.shuffleCards()
+      this.shuffle()
    }
 
    handleClick = (card) => {
-      this.state.firstCard
-         ? this.setState({ secondCard: card })
-         : this.setState({ firstCard: card })
+      if (!this.state.isSelected) {
+         this.state.firstCard
+            ? this.setState({ secondCard: card })
+            : this.setState({ firstCard: card })
+      }
    }
 
    resetTurn = () => {
-      this.setState({ firstCard: null, secondCard: null })
+      if (this.props.score < 6 && this.props.moves > 0) {
+         this.setState({ firstCard: null, secondCard: null, isSelected: false })
+      }
    }
 
    componentDidUpdate(prevProps, prevState) {
@@ -38,6 +45,7 @@ class Board extends Component {
          prevState.secondCard !== this.state.secondCard
       ) {
          if (this.state.firstCard && this.state.secondCard) {
+            this.setState({ isSelected: true })
             if (this.state.firstCard.src === this.state.secondCard.src) {
                const updatedCards = prevState.cards.map((card) => {
                   if (card.src === this.state.firstCard.src) {
@@ -46,13 +54,13 @@ class Board extends Component {
                      return card
                   }
                })
-               const currMatched = this.state.matched + 1
-               this.setState({ cards: updatedCards, matched: currMatched })
+
+               this.setState({ cards: updatedCards })
                this.props.increaseScore()
                this.resetTurn()
             } else {
+               this.props.decreaseMoves()
                setTimeout(() => {
-                  this.props.decreaseMoves()
                   this.resetTurn()
                }, 800)
             }
@@ -75,11 +83,12 @@ class Board extends Component {
                            card === this.state.secondCard ||
                            card.matched
                         }
+                        disabled={this.state.isSelected}
                      />
                   )
                })}
             </div>
-            <button onClick={this.shuffleCards} className={styles['reset-btn']}>
+            <button onClick={this.shuffle} className={styles['reset-btn']}>
                Reset Game
             </button>
          </Fragment>

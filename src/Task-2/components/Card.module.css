@@ -1,5 +1,7 @@
 .card {
    position: relative;
+   border-radius: 0.5rem;
+   overflow: hidden;
 }
 
 .card-img {
@@ -8,17 +10,17 @@
    object-fit: cover;
    position: absolute;
    transform: rotateY(90deg);
-   transition: 0.3s all ease;
+   transition: all linear 0.1s;
 }
 
 .card-back {
    width: 100%;
    height: 100%;
-   background-color: #d4a056;
+   background-color: #aaaaaa;
    cursor: pointer;
    position: absolute;
-   transition: 0.3s all ease;
-   overflow: hidden;
+   transition: all linear 0.1s;
+   transition-delay: 0.1s;
 }
 
 .card-back:hover {
@@ -27,9 +29,17 @@
 
 .show .card-img {
    transform: rotateY(0deg);
-   z-index: 100;
+   z-index: 1;
 }
 
 .show .card-back {
    transform: rotateY(90deg);
+}
+
+.disabled {
+   cursor: not-allowed;
+}
+
+.disabled:hover {
+   background-color: #aaaaaa;
 }

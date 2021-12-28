@@ -16,7 +16,9 @@ class Card extends Component {
                   className={styles['card-img']}
                />
                <div
-                  className={styles['card-back']}
+                  className={`${styles['card-back']} ${
+                     this.props.disabled ? styles.disabled : ''
+                  }`}
                   onClick={this.handleClick}
                ></div>
             </div>

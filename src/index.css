@@ -6,10 +6,17 @@ body {
    -moz-osx-font-smoothing: grayscale;
    box-sizing: border-box;
    color: white;
-   background-color: #292d33;
+   background-color: #212121;
+   position: relative;
 }
 
 code {
    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
+}
+
+@media screen and (max-width: 768px) {
+   body {
+      font-size: 12px;
+   }
 }

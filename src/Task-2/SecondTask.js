@@ -17,7 +17,7 @@ class Secondtask extends Component {
       score: 0,
    }
 
-   reset = () => {
+   resetHeader = () => {
       this.setState({ moves: 5, score: 0 })
    }
 
@@ -36,10 +36,12 @@ class Secondtask extends Component {
          <Fragment>
             <Header moves={this.state.moves} score={this.state.score} />
             <Board
+               score={this.state.score}
+               moves={this.state.moves}
                images={images}
                decreaseMoves={this.decreaseMoves}
                increaseScore={this.increaseScore}
-               reset={this.reset}
+               reset={this.resetHeader}
             />
          </Fragment>
       )
