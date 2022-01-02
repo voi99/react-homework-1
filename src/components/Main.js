@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styles from './Main.module.css'
 
 const Main = () => {
@@ -7,19 +7,13 @@ const Main = () => {
       <main className={styles.main}>
          <ul className={styles['task-list']}>
             <li className={styles['task-list-task']}>
-               <NavLink to='/task-1' style={{ textDecoration: 'none' }}>
-                  Task-1
-               </NavLink>
+               <Link to='/task-1'>Task-1</Link>
             </li>
             <li className={styles['task-list-task']}>
-               <NavLink to='/task-2' style={{ textDecoration: 'none' }}>
-                  Task-2
-               </NavLink>
+               <Link to='/task-2'>Task-2</Link>
             </li>
             <li className={styles['task-list-task']}>
-               <NavLink to='/task-3' style={{ textDecoration: 'none' }}>
-                  Task-3
-               </NavLink>
+               <Link to='/task-3'>Task-3</Link>
             </li>
          </ul>
       </main>

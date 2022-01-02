@@ -15,7 +15,7 @@ const Header = () => {
             <NavLink to='/' style={{ textDecoration: 'none' }}>
                Homework 1
             </NavLink>
-            {title && ` | ${title}`}
+            {title && `| ${title}`}
          </h2>
       </header>
    )

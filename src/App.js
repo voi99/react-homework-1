@@ -16,7 +16,7 @@ const App = () => {
             <Route path='/' element={<Main />} />
             <Route path='/task-1' element={<FirstTask />} />
             <Route path='/task-2' element={<SecondTask />} />
-            <Route path='/task-3' element={<ThirdTask />} />
+            <Route path='/task-3/*' element={<ThirdTask />} />
          </Routes>
          <Footer></Footer>
       </div>

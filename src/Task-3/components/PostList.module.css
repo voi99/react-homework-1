@@ -1,0 +1,27 @@
+.link {
+   display: block;
+   text-decoration: none;
+   color: inherit;
+}
+
+.title {
+   text-align: center;
+}
+
+.posts {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 0.8rem;
+}
+
+@media screen and (max-width: 768px) {
+   .posts {
+      grid-template-columns: 1fr;
+   }
+}
+
+@media screen and (max-width: 1024px) {
+   .posts {
+      grid-template-columns: 1fr 1fr;
+   }
+}

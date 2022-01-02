@@ -1,0 +1,24 @@
+.header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   height: 3rem;
+}
+
+.logo {
+   border-radius: 50%;
+   overflow: hidden;
+   height: 100%;
+   width: 100%;
+}
+
+.logo img {
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
+}
+
+.home {
+   display: block;
+   height: 100%;
+}
