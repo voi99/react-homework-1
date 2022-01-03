@@ -1,0 +1,32 @@
+.firstTaskForm {
+  width: 100%;
+  border: 1px solid #dfdfdf;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+pre {
+  width: 70%;
+  color: #fff;
+  font-size: larger;
+}
+
+button {
+  background: #0563b4 !important;
+  width: 50%;
+  height: 3rem;
+  align-self: center;
+}
+p {
+  color: red;
+}
+
+input {
+  width: 50%;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
