@@ -1,0 +1,106 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+.firstTaskContainer {
+  display: flex;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  border: 1px solid #dfdfdf;
+  padding: 2px;
+  border-radius: 2rem;
+}
+.firstTaskImageContainer {
+  width: 50%;
+}
+.firstTaskImageContainer img {
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+}
+.firstTaskForm {
+  width: 50%;
+  align-self: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.firstTaskForm button {
+  background: #0563b4;
+  font-family: "Varela Round", sans-serif;
+  width: 50%;
+  height: 3rem;
+  align-self: center;
+  font-size: 1.5rem;
+  font-weight: 1000;
+  border-radius: 1rem;
+}
+.firstTaskForm input {
+  width: 50%;
+  height: 3rem;
+  font-size: 1.2rem;
+  text-align: center;
+  padding-left: 3rem;
+  border-radius: 1rem;
+  box-sizing: border-box;
+}
+
+.inputError {
+  border-color: red;
+  border-width: 5px;
+  color: red;
+  background-color: rgb(255, 238, 0);
+}
+.firstTaskRegisterText {
+  font-size: 3rem;
+  color: rgb(5, 102, 192);
+  font-weight: 700;
+}
+.firstTaskErrorText {
+  color: red;
+  height: 2rem;
+}
+.firstTaskForm i {
+  transform: translate(20px, 15px);
+  color: black;
+  font-size: 1.4rem;
+  position: absolute;
+  opacity: 0.7;
+}
+@media only screen and (max-width: 500px) {
+  .firstTaskContainer {
+    flex-direction: column;
+  }
+  .firstTaskForm input {
+    width: 100%;
+  }
+  .firstTaskForm button {
+    width: 80%;
+  }
+  .firstTaskForm {
+    width: 100%;
+    font-size: 0.5rem;
+  }
+  .firstTaskImageContainer {
+    width: 100%;
+  }
+  .firstTaskForm i {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 1023px) {
+  .firstTaskContainer {
+    flex-direction: column;
+  }
+  .firstTaskForm {
+    width: 100%;
+  }
+  .firstTaskImageContainer {
+    width: 100%;
+  }
+  .firstTaskForm i {
+    font-size: 1rem;
+  }
+}
