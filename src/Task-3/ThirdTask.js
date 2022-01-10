@@ -4,6 +4,7 @@ import Header from './components/Header'
 import AddPost from './components/AddPost'
 import PostList from './components/PostList'
 import Post from './components/Post'
+import "./styles.css";
 
 class ThirdTask extends Component {
    state = {
