@@ -13,7 +13,7 @@ class ThirdTask extends Component {
    async componentDidMount() {
       try {
          const response = await fetch(
-            'https://jsonblob.com/api/925829105237377024'
+            'https://jsonblob.com/api/930078800407183360'
          )
          const posts = await response.json()
 
