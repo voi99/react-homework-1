@@ -1,0 +1,54 @@
+ .onePost {
+    display: grid;
+    grid-template-areas: 
+       'post-title post-img'
+       'post-author post-img'
+       'post-content post-content';
+    grid-gap: 1rem; 
+    margin: 3rem;
+    margin-top: 2rem;
+    text-align: center;
+    width: 80%; 
+ }
+
+ .onePost img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20%;
+    margin-right: 6rem;
+ }
+ 
+ .card-footer {
+    text-align: center;
+ }
+ 
+ .card-footer span {
+    display: block;
+    padding: 0.5rem;
+    color: #8b8f92dc;
+    font-weight: bold;
+    padding-bottom: 1.5rem;
+ }
+ 
+ .post-title {
+    font-style: inherit;
+    font-size: 2rem;
+    margin: 2rem;
+    text-align: left;
+    margin-left: 4.5rem;
+    margin-bottom: 0rem;
+}
+
+ .post-author {
+    color: rgb(136, 136, 136);
+    font-style: italic;
+    text-align: left;
+    margin-left: 4.5rem;
+  }
+  
+  .post-content {
+    font-size: 1.2rem;
+    color: rgb(100, 100, 100);
+    text-align: center;
+    width: 100%;
+  }

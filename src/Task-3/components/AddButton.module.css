@@ -1,5 +1,5 @@
 .button {
-   font-family: inherit;
+ font-family: inherit;
    background-color: #8a2be2;
    border: none;
    border-radius: 0.5rem;
@@ -17,3 +17,4 @@
 .button:hover {
    background-color: #3d3d3d;
 }
+
