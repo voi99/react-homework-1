@@ -24,3 +24,23 @@
 .title {
    text-align: center;
 }
+
+.content {
+   text-align: justify;
+}
+
+@media only screen and (min-width: 1024px) {
+   .post {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+   }
+
+   .text {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 1rem;
+   }
+}

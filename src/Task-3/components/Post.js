@@ -37,7 +37,7 @@ class Post extends Component {
             </div>
             <div className={styles.text}>
                <h3 className={styles.title}>{this.state.post.title}</h3>
-               <p>{this.state.post.content}</p>
+               <p className={styles.content}>{this.state.post.content}</p>
             </div>
          </div>
       )
