@@ -4,22 +4,42 @@ import Header from './components/Header'
 import AddPost from './components/AddPost'
 import PostList from './components/PostList'
 import Post from './components/Post'
+import LoadingSpinner from './components/LoadingSpinner'
 
 class ThirdTask extends Component {
-   state = {
-      postList: [],
+   constructor() {
+      super()
+      this.state = {
+         postList: [],
+         update: false,
+         loading: true,
+      }
    }
 
-   async componentDidMount() {
+   updatePosts = () => {
+      this.setState({ update: true })
+   }
+
+   fetchPosts = async () => {
       try {
          const response = await fetch(
-            'https://jsonblob.com/api/925829105237377024'
+            'https://jsonblob.com/api/930078800407183360'
          )
          const posts = await response.json()
 
-         this.setState({ postList: posts })
+         this.setState({ postList: posts, loading: false })
       } catch (err) {
          console.log(err)
+      }
+   }
+
+   async componentDidMount() {
+      await this.fetchPosts()
+   }
+
+   async componentDidUpdate(prevProps, prevState) {
+      if (prevState.update !== this.state.update) {
+         await this.fetchPosts()
       }
    }
 
@@ -27,13 +47,23 @@ class ThirdTask extends Component {
       return (
          <main>
             <Header />
+
             <Routes>
                <Route path='/' element={<Navigate to='/task-3/posts' />} />
                <Route
                   path='posts'
-                  element={<PostList posts={this.state.postList} />}
+                  element={
+                     this.state.loading ? (
+                        <LoadingSpinner />
+                     ) : (
+                        <PostList posts={this.state.postList} />
+                     )
+                  }
                />
-               <Route path='add-post' element={<AddPost />}></Route>
+               <Route
+                  path='add-post'
+                  element={<AddPost update={this.updatePosts} />}
+               ></Route>
                <Route
                   path=':id'
                   element={<Post posts={this.state.postList} />}

@@ -8,8 +8,8 @@ class PostCard extends Component {
          <div className={styles.card}>
             <img alt='post-img' src={post.src}></img>
             <div className={styles['card-footer']}>
-               <span>{post.autor}</span>
-               <p>{post.text}</p>
+               <span>{post.author}</span>
+               <p>{post.content}</p>
             </div>
          </div>
       )
