@@ -9,7 +9,7 @@ class PostCard extends Component {
             <img alt='post-img' src={post.src}></img>
             <div className={styles['card-footer']}>
                <span>{post.author}</span>
-               <p>{post.content}</p>
+               <p>{post.title}</p>
             </div>
          </div>
       )
