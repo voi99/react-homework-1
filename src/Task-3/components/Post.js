@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import withRouter from '../../withRouter'
 import styles from './Post.module.css'
 import LoadingSpinner from './LoadingSpinner'
+import Animate from '../../Animate'
 
 class Post extends Component {
    state = {
@@ -30,7 +31,7 @@ class Post extends Component {
       return this.state.loading ? (
          <LoadingSpinner />
       ) : (
-         <div className={styles.post}>
+         <Animate className={styles.post}>
             <div className={styles.banner}>
                <img src={this.state.post.src} alt='post-img' />
                <p className={styles.author}>{this.state.post.author}</p>
@@ -39,7 +40,7 @@ class Post extends Component {
                <h3 className={styles.title}>{this.state.post.title}</h3>
                <p className={styles.content}>{this.state.post.content}</p>
             </div>
-         </div>
+         </Animate>
       )
    }
 }

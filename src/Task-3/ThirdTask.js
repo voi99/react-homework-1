@@ -47,7 +47,6 @@ class ThirdTask extends Component {
       return (
          <main>
             <Header />
-
             <Routes>
                <Route path='/' element={<Navigate to='/task-3/posts' />} />
                <Route

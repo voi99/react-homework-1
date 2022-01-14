@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PostCard from './PostCard'
 import styles from './PostList.module.css'
 import { Link } from 'react-router-dom'
+import Animate from '../../Animate'
 
 const noData = () => {
    return (
@@ -14,7 +15,7 @@ const noData = () => {
 class PostList extends Component {
    render() {
       return (
-         <div>
+         <Animate>
             <h3 className={styles.title}>All posts</h3>
             {this.props.posts.length > 0 ? (
                <div className={styles.posts}>
@@ -33,7 +34,7 @@ class PostList extends Component {
             ) : (
                noData()
             )}
-         </div>
+         </Animate>
       )
    }
 }

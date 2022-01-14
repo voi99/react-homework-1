@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import withRouter from '../../withRouter'
 import styles from './AddPost.module.css'
+import Animate from '../../Animate'
 
 class Addpost extends Component {
    state = {
@@ -53,7 +54,7 @@ class Addpost extends Component {
 
    render() {
       return (
-         <div>
+         <Animate>
             <h2>Add Post</h2>
             <form onSubmit={this.submitForm} className={styles.form}>
                <label htmlFor='title'>Enter Title</label>
@@ -90,7 +91,7 @@ class Addpost extends Component {
                ></textarea>
                <button className={styles.button}>Add</button>
             </form>
-         </div>
+         </Animate>
       )
    }
 }
