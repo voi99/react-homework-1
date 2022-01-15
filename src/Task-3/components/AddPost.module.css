@@ -12,6 +12,18 @@
    font-family: inherit;
 }
 
+.form span {
+   text-align: center;
+}
+
+.form span.error {
+   color: #ff0000;
+}
+
+.form span.sending {
+   color: #8a2be2;
+}
+
 .button {
    font-family: inherit;
    padding: 1rem;

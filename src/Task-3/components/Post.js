@@ -13,7 +13,7 @@ class Post extends Component {
    async componentDidMount() {
       try {
          const response = await fetch(
-            'https://jsonblob.com/api/930078800407183360'
+            'https://jsonblob.com/api/931892711712374784'
          )
          const posts = await response.json()
 

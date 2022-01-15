@@ -9,11 +9,13 @@ class Addpost extends Component {
       src: '',
       author: '',
       content: '',
+      sendingRequest: false,
+      error: false,
    }
 
    async fetchLatestPosts() {
       const response = await fetch(
-         'https://jsonblob.com/api/930078800407183360'
+         'https://jsonblob.com/api/931892711712374784'
       )
       const posts = await response.json()
       return posts
@@ -25,31 +27,52 @@ class Addpost extends Component {
 
    submitForm = async (e) => {
       e.preventDefault()
+      this.setState({ sendingRequest: true })
       const latestPosts = await this.fetchLatestPosts()
       let newPost
+      const cloneState = Object.assign(
+         {},
+         {
+            title: this.state.title,
+            src: this.state.src,
+            author: this.state.author,
+            content: this.state.content,
+         }
+      )
+
       try {
          let latestId = latestPosts[latestPosts.length - 1].id
          newPost = {
             id: `${++latestId}`,
-            ...this.state,
+            ...cloneState,
          }
       } catch {
          newPost = {
             id: '1',
-            ...this.state,
+            ...cloneState,
          }
       }
       const dataToPut = [...latestPosts, { ...newPost }]
 
-      fetch('https://jsonblob.com/api/930078800407183360', {
+      fetch('https://jsonblob.com/api/931892711712374784', {
          method: 'PUT',
          headers: {
             'Content-Type': 'application/json',
          },
          body: JSON.stringify(dataToPut),
       })
-      this.props.update()
-      this.props.navigate('/task-3')
+         .then((res) => {
+            this.setState({ sendingRequest: false })
+            if (res.ok) {
+               this.props.update()
+               this.props.navigate('/task-3')
+            } else {
+               this.setState({ error: true })
+            }
+         })
+         .catch(() => {
+            this.setState({ error: true })
+         })
    }
 
    render() {
@@ -64,22 +87,27 @@ class Addpost extends Component {
                   className='title'
                   id='title'
                   onChange={this.inputHandler}
+                  maxLength={20}
+                  required
                />
-               <label htmlFor='title'>Enter Image Source</label>
+               <label htmlFor='src'>Enter Image Source</label>
                <input
                   type='text'
                   name='src'
                   className='src'
                   id='src'
                   onChange={this.inputHandler}
+                  required
                />
-               <label htmlFor='title'>Enter Author</label>
+               <label htmlFor='author'>Enter Author</label>
                <input
                   type='text'
                   name='author'
                   className='author'
                   id='author'
                   onChange={this.inputHandler}
+                  maxLength={20}
+                  required
                />
                <label htmlFor='content'>Enter Content</label>
                <textarea
@@ -88,8 +116,16 @@ class Addpost extends Component {
                   cols='30'
                   rows='10'
                   onChange={this.inputHandler}
+                  maxLength={500}
+                  required
                ></textarea>
-               <button className={styles.button}>Add</button>
+               {this.state.sendingRequest ? (
+                  <span className={styles.sending}>Adding Post...</span>
+               ) : this.state.error ? (
+                  <span className={styles.error}>Error! Try again later!</span>
+               ) : (
+                  <button className={styles.button}>Add</button>
+               )}
             </form>
          </Animate>
       )
