@@ -1,7 +1,8 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import Header from './components/Header'
 import Board from './components/Board'
 import Helmet from 'react-helmet'
+import Animate from '../Animate'
 
 const images = [
    { src: '/images/card-1.jpeg', matched: false },
@@ -34,7 +35,7 @@ class Secondtask extends Component {
 
    render() {
       return (
-         <Fragment>
+         <Animate>
             <Helmet>
                <title>Task-2</title>
             </Helmet>
@@ -47,7 +48,7 @@ class Secondtask extends Component {
                increaseScore={this.increaseScore}
                reset={this.resetHeader}
             />
-         </Fragment>
+         </Animate>
       )
    }
 }

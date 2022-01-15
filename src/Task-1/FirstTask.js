@@ -4,6 +4,7 @@ import InputField from './components/formInputField'
 import { NotificationContainer, NotificationManager } from 'react-notifications'
 import 'react-notifications/lib/notifications.css'
 import { Helmet } from 'react-helmet'
+import Animate from '../Animate'
 const initialState = {
    userName: '',
    firstName: '',
@@ -156,79 +157,81 @@ export default class ValidationForm extends React.Component {
 
    render() {
       return (
-         <div className='firstTaskContainer'>
-            <Helmet>
-               <title>Task-1</title>
-            </Helmet>
-            <NotificationContainer />
-            <div className='firstTaskImageContainer'>
-               <img src='/images/registerImage.svg' alt='' />
+         <Animate>
+            <div className='firstTaskContainer'>
+               <Helmet>
+                  <title>Task-1</title>
+               </Helmet>
+               <NotificationContainer />
+               <div className='firstTaskImageContainer'>
+                  <img src='/images/registerImage.svg' alt='' />
+               </div>
+               <form className='firstTaskForm' onSubmit={this.handleSubmit}>
+                  <div className='firstTaskRegisterText'>REGISTER WITH US</div>
+                  <InputField
+                     type='text'
+                     name='userName'
+                     placeholder='Username'
+                     icon='fa fa-user icon'
+                     value={this.state.userName}
+                     class={this.state.userNameErrorTrue}
+                     errorMessage={this.state.userNameError}
+                     handleChange={this.handleChange}
+                  />
+                  <InputField
+                     type='text'
+                     name='firstName'
+                     placeholder='First Name'
+                     icon='fas fa-signature'
+                     value={this.state.firstName}
+                     class={this.state.firstNameErrorTrue}
+                     errorMessage={this.state.firstNameError}
+                     handleChange={this.handleChange}
+                  />
+                  <InputField
+                     type='text'
+                     name='lastName'
+                     placeholder='Last Name'
+                     icon='fas fa-signature'
+                     value={this.state.lastName}
+                     class={this.state.lastNameErrorTrue}
+                     errorMessage={this.state.lastNameError}
+                     handleChange={this.handleChange}
+                  />
+                  <InputField
+                     type='text'
+                     name='email'
+                     placeholder='Email'
+                     icon='fa fa-envelope icon'
+                     value={this.state.email}
+                     class={this.state.emailErrorTrue}
+                     errorMessage={this.state.emailError}
+                     handleChange={this.handleChange}
+                  />
+                  <InputField
+                     type='password'
+                     name='password'
+                     placeholder='Password'
+                     icon='fa fa-key icon'
+                     value={this.state.password}
+                     class={this.state.passwordErrorTrue}
+                     errorMessage={this.state.passwordError}
+                     handleChange={this.handleChange}
+                  />
+                  <InputField
+                     type='password'
+                     name='confirmPassword'
+                     placeholder='Confirm Password'
+                     icon='fas fa-unlock-alt'
+                     value={this.state.confirmPassword}
+                     class={this.state.confirmPasswordErrorTrue}
+                     errorMessage={this.state.confirmPasswordError}
+                     handleChange={this.handleChange}
+                  />
+                  <button type='submit'>SUBMIT</button>
+               </form>
             </div>
-            <form className='firstTaskForm' onSubmit={this.handleSubmit}>
-               <div className='firstTaskRegisterText'>REGISTER WITH US</div>
-               <InputField
-                  type='text'
-                  name='userName'
-                  placeholder='Username'
-                  icon='fa fa-user icon'
-                  value={this.state.userName}
-                  class={this.state.userNameErrorTrue}
-                  errorMessage={this.state.userNameError}
-                  handleChange={this.handleChange}
-               />
-               <InputField
-                  type='text'
-                  name='firstName'
-                  placeholder='First Name'
-                  icon='fas fa-signature'
-                  value={this.state.firstName}
-                  class={this.state.firstNameErrorTrue}
-                  errorMessage={this.state.firstNameError}
-                  handleChange={this.handleChange}
-               />
-               <InputField
-                  type='text'
-                  name='lastName'
-                  placeholder='Last Name'
-                  icon='fas fa-signature'
-                  value={this.state.lastName}
-                  class={this.state.lastNameErrorTrue}
-                  errorMessage={this.state.lastNameError}
-                  handleChange={this.handleChange}
-               />
-               <InputField
-                  type='text'
-                  name='email'
-                  placeholder='Email'
-                  icon='fa fa-envelope icon'
-                  value={this.state.email}
-                  class={this.state.emailErrorTrue}
-                  errorMessage={this.state.emailError}
-                  handleChange={this.handleChange}
-               />
-               <InputField
-                  type='password'
-                  name='password'
-                  placeholder='Password'
-                  icon='fa fa-key icon'
-                  value={this.state.password}
-                  class={this.state.passwordErrorTrue}
-                  errorMessage={this.state.passwordError}
-                  handleChange={this.handleChange}
-               />
-               <InputField
-                  type='password'
-                  name='confirmPassword'
-                  placeholder='Confirm Password'
-                  icon='fas fa-unlock-alt'
-                  value={this.state.confirmPassword}
-                  class={this.state.confirmPasswordErrorTrue}
-                  errorMessage={this.state.confirmPasswordError}
-                  handleChange={this.handleChange}
-               />
-               <button type='submit'>SUBMIT</button>
-            </form>
-         </div>
+         </Animate>
       )
    }
 }

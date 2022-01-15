@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 const Animate = (props) => {
    return (
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
