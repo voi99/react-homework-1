@@ -3,7 +3,7 @@ import './firstTask.css'
 import InputField from './components/formInputField'
 import { NotificationContainer, NotificationManager } from 'react-notifications'
 import 'react-notifications/lib/notifications.css'
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import Animate from '../Animate'
 const initialState = {
    userName: '',

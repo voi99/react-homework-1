@@ -5,7 +5,7 @@ import AddPost from './components/AddPost'
 import PostList from './components/PostList'
 import Post from './components/Post'
 import LoadingSpinner from './components/LoadingSpinner'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 
 class ThirdTask extends Component {
    constructor() {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Header from './components/Header'
 import Board from './components/Board'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import Animate from '../Animate'
 
 const images = [
