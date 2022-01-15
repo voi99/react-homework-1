@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import Header from './components/Header'
 import Board from './components/Board'
+import Helmet from 'react-helmet'
 
 const images = [
    { src: '/images/card-1.jpeg', matched: false },
@@ -34,6 +35,9 @@ class Secondtask extends Component {
    render() {
       return (
          <Fragment>
+            <Helmet>
+               <title>Task-2</title>
+            </Helmet>
             <Header moves={this.state.moves} score={this.state.score} />
             <Board
                score={this.state.score}

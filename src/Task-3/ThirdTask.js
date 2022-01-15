@@ -5,6 +5,7 @@ import AddPost from './components/AddPost'
 import PostList from './components/PostList'
 import Post from './components/Post'
 import LoadingSpinner from './components/LoadingSpinner'
+import Helmet from 'react-helmet'
 
 class ThirdTask extends Component {
    constructor() {
@@ -46,6 +47,9 @@ class ThirdTask extends Component {
    render() {
       return (
          <main>
+            <Helmet>
+               <title>Task-3</title>
+            </Helmet>
             <Header />
             <Routes>
                <Route path='/' element={<Navigate to='/task-3/posts' />} />
