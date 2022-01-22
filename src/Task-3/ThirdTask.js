@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Routes, Navigate } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
 import AddPost from './components/AddPost'
 import PostList from './components/PostList'
