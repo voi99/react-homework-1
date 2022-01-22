@@ -1,3 +1,3 @@
 # Live
 
-https://kind-wing-1b50b6.netlify.app/
+https://react-homework-1.vercel.app/
