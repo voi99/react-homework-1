@@ -1,17 +1,23 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
+
+const variants = {
+   hidden: { opacity: 0, x: 0, y: 20 },
+   enter: { opacity: 1, x: 0, y: 0 },
+   exit: { opacity: 0, x: 0, y: 20 },
+}
 
 const Animate = (props) => {
    return (
-      <AnimatePresence exitBeforeEnter>
-         <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className={props.className}
-         >
-            {props.children}
-         </motion.div>
-      </AnimatePresence>
+      <motion.div
+         initial='hidden'
+         animate='enter'
+         exit='exit'
+         variants={variants}
+         transition={{ duration: 0.4, type: 'easeInOut' }}
+         className={props.className}
+      >
+         {props.children}
+      </motion.div>
    )
 }
 

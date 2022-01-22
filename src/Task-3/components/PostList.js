@@ -19,7 +19,7 @@ class PostList extends Component {
             <h3 className={styles.title}>All posts</h3>
             {this.props.posts.length > 0 ? (
                <div className={styles.posts}>
-                  {this.props.posts.map((post) => {
+                  {this.props.posts.reverse().map((post) => {
                      return (
                         <Link
                            to={`/task-3/${post.id}`}

@@ -6,6 +6,8 @@ import PostList from './components/PostList'
 import Post from './components/Post'
 import LoadingSpinner from './components/LoadingSpinner'
 import { Helmet } from 'react-helmet-async'
+import { AnimatePresence } from 'framer-motion'
+import withRouter from '../withRouter'
 
 class ThirdTask extends Component {
    constructor() {
@@ -17,7 +19,10 @@ class ThirdTask extends Component {
       }
    }
 
+   interval = null
+
    updatePosts = () => {
+      console.log('uslo')
       this.setState((prevState) => ({ update: !prevState.update }))
    }
 
@@ -36,12 +41,21 @@ class ThirdTask extends Component {
 
    async componentDidMount() {
       await this.fetchPosts()
+      const intervalId = setInterval(() => {
+         this.updatePosts()
+      }, 10000)
+
+      this.interval = intervalId
    }
 
    async componentDidUpdate(prevProps, prevState) {
       if (prevState.update !== this.state.update) {
          await this.fetchPosts()
       }
+   }
+
+   componentWillUnmount() {
+      clearInterval(this.interval)
    }
 
    render() {
@@ -51,30 +65,35 @@ class ThirdTask extends Component {
                <title>Task-3</title>
             </Helmet>
             <Header />
-            <Routes>
-               <Route path='/' element={<Navigate to='/task-3/posts' />} />
-               <Route
-                  path='posts'
-                  element={
-                     this.state.loading ? (
-                        <LoadingSpinner />
-                     ) : (
-                        <PostList posts={this.state.postList} />
-                     )
-                  }
-               />
-               <Route
-                  path='add-post'
-                  element={<AddPost update={this.updatePosts} />}
-               ></Route>
-               <Route
-                  path=':id'
-                  element={<Post posts={this.state.postList} />}
-               ></Route>
-            </Routes>
+            <AnimatePresence exitBeforeEnter>
+               <Routes
+                  location={this.props.location}
+                  key={this.props.location.key}
+               >
+                  {/* <Route path='/' element={<Navigate to='posts' />} /> */}
+                  <Route
+                     path='/'
+                     element={
+                        this.state.loading ? (
+                           <LoadingSpinner />
+                        ) : (
+                           <PostList posts={this.state.postList} />
+                        )
+                     }
+                  />
+                  <Route
+                     path='add-post'
+                     element={<AddPost update={this.updatePosts} />}
+                  ></Route>
+                  <Route
+                     path=':id'
+                     element={<Post posts={this.state.postList} />}
+                  ></Route>
+               </Routes>
+            </AnimatePresence>
          </main>
       )
    }
 }
 
-export default ThirdTask
+export default withRouter(ThirdTask)
